@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <import type="com.alpamedev.weather.common.utils.CommonUtilsKt"/>
         <variable
             name="viewModel"
             type="com.alpamedev.weather.mainModule.viewModel.MainViewModel" />
@@ -20,6 +19,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?attr/textAppearanceHeadline4"
             android:text="@{String.valueOf(viewModel.result.name)}"
+            app:bindIsGone="@{viewModel.isLoading()}"
             tools:text="Timezone"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,6 +41,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             layout="@layout/item_weather_layout"
+            app:weather="@{viewModel.result}"
+            app:bindIsGone="@{viewModel.isLoading()}"
             app:layout_constraintTop_toBottomOf="@id/tvCurrentTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
