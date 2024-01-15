@@ -3,4 +3,5 @@
     <dimen name="common_padding_default">16dp</dimen>
     <dimen name="common_margin_min">8dp</dimen>
     <dimen name="common_margin_default">16dp</dimen>
+    <dimen name="common_margin_max">32dp</dimen>
 </resources>

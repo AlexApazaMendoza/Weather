@@ -51,6 +51,17 @@
             app:layout_constraintStart_toStartOf="@id/tvDateTime"/>
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvPop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceOverline"
+            android:text="@{@string/weather_pop(CommonUtilsKt.getPop(forecast.pop))}"
+            bindIsGone="@{weather != null}"
+            tools:text="10%"
+            app:layout_constraintTop_toBottomOf="@id/tvHumidity"
+            app:layout_constraintStart_toStartOf="@id/tvHumidity"/>
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,7 +85,7 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="?attr/colorSecondary"
-            android:layout_marginTop="@dimen/common_margin_default"
+            android:layout_marginTop="@dimen/common_margin_max"
             app:layout_constraintTop_toBottomOf="@id/tvTemp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>

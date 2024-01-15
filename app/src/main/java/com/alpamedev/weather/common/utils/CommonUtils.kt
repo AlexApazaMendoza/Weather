@@ -25,3 +25,7 @@ fun getWeatherMain(weather: List<WeatherX>?): String {
 fun getWeatherDescription(weather: List<WeatherX>?): String {
     return if(weather?.isNotEmpty() == true) weather[0].description else "-"
 }
+
+fun getPop(value: Double): Double {
+    return value * 100
+}
