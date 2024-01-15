@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.alpamedev.weather.common.entities.Forecast
 import com.alpamedev.weather.common.entities.Weather
 import com.alpamedev.weather.mainModule.model.MainRepository
 import kotlinx.coroutines.launch
@@ -14,6 +15,10 @@ class MainViewModel: ViewModel() {
     private val _result = MutableLiveData<Weather>()
     val result : LiveData<Weather>
         get() = _result
+
+    private val _forecast = MutableLiveData<Forecast>()
+    val forecast : LiveData<Forecast>
+        get() = _forecast
 
     private val _snackBarMessage = MutableLiveData<Int>()
     val snackBarMessage: LiveData<Int>
@@ -27,7 +32,19 @@ class MainViewModel: ViewModel() {
         viewModelScope.launch {
             try {
                 _isLoading.value = true
-                _result.value = repository.getWeatherForecast(lat, lon, "metric", "sp, es")
+                _result.value = repository.getCurrentWeather(lat, lon, "metric", "sp, es")
+            } catch (e: Exception) {
+                e.printStackTrace()
+            } finally {
+                _isLoading.value = false
+            }
+        }
+    }
+    fun getForecastWeather(lat: Double, lon: Double) {
+        viewModelScope.launch {
+            try {
+                _isLoading.value = true
+                _forecast.value = repository.getForecastWeather(lat, lon, "metric", 6, "sp, es")
             } catch (e: Exception) {
                 e.printStackTrace()
             } finally {

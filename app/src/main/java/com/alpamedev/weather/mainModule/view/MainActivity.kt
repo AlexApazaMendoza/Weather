@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         lifecycleScope.launch {
             viewModel.getWeather(-11.88017985388384, -77.13366245457782)
+            viewModel.getForecastWeather(-11.88017985388384, -77.13366245457782)
         }
     }
 }
