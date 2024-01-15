@@ -17,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/common_padding_default"
-        android:layout_marginVertical="@dimen/common_margin_min">
+        android:layout_marginVertical="@dimen/common_margin_min"
+        android:background="@drawable/layout_bg_round_item">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvTemp"
@@ -85,8 +86,8 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="?attr/colorSecondary"
-            android:layout_marginTop="@dimen/common_margin_max"
-            app:layout_constraintTop_toBottomOf="@id/tvTemp"
+            android:layout_marginTop="@dimen/common_margin_min"
+            app:layout_constraintTop_toBottomOf="@id/tvPop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

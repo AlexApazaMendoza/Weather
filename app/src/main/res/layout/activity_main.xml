@@ -11,6 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/colorSurface"
         tools:context=".mainModule.view.MainActivity">
 
         <com.google.android.material.textview.MaterialTextView
@@ -40,6 +41,7 @@
             android:id="@+id/currentWeather"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/common_margin_min"
             layout="@layout/item_weather_layout"
             app:weather="@{viewModel.result}"
             app:bindIsGone="@{viewModel.isLoading()}"
@@ -47,27 +49,40 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvForecastTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceHeadline5"
-            android:text="@string/main_forecast_weather_title"
-            app:bindIsGone="@{viewModel.isLoading()}"
-            app:layout_constraintTop_toBottomOf="@id/currentWeather"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvForecastWeather"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
-            tools:itemCount="4"
-            tools:listitem="@layout/item_weather_layout"
-            app:layout_constraintTop_toBottomOf="@id/tvForecastTitle"
+            android:background="@drawable/layout_bg_round"
+            android:layout_marginTop="@dimen/common_margin_min"
+            android:padding="@dimen/common_padding_min"
+            app:layout_constraintTop_toBottomOf="@id/currentWeather"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvForecastTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:text="@string/main_forecast_weather_title"
+                app:bindIsGone="@{viewModel.isLoading()}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvForecastWeather"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_weather_layout"
+                app:layout_constraintTop_toBottomOf="@id/tvForecastTitle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:layout_width="0dp"

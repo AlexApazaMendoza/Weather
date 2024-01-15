@@ -9,6 +9,9 @@
         <item name="colorSecondary">@color/deep_orange_A200</item>
         <item name="colorSecondaryVariant">@color/deep_orange_A400</item>
         <item name="colorOnSecondary">@color/white</item>
+
+        <item name="colorSurface">@color/gray_200</item>
+        <item name="colorOnSurface">@color/black</item>
     </style>
 
     <style name="Theme.Weather" parent="Base.Theme.Weather" />
