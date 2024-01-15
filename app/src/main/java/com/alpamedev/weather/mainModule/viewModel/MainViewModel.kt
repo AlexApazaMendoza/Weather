@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.alpamedev.weather.R
 import com.alpamedev.weather.common.entities.Forecast
 import com.alpamedev.weather.common.entities.Weather
 import com.alpamedev.weather.mainModule.model.MainRepository
@@ -44,7 +45,11 @@ class MainViewModel: ViewModel() {
         viewModelScope.launch {
             try {
                 _isLoading.value = true
-                _forecast.value = repository.getForecastWeather(lat, lon, "metric", 6, "sp, es")
+                val forecast = repository.getForecastWeather(lat, lon, "metric", 6, "sp, es")
+                _forecast.value = forecast
+                if (forecast.list.isEmpty()) {
+                    _snackBarMessage.value = R.string.weather_empty_list_message
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
             } finally {

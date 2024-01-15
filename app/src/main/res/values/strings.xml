@@ -7,4 +7,6 @@
     <string name="weather_time">Hour: %s</string>
     <string name="weather_humidity">Humidity: %d%%</string>
     <string name="weather_pop">Pop: %.1f%%</string>
+
+    <string name="weather_empty_list_message">Pronóstico no disponible</string>
 </resources>
