@@ -9,6 +9,10 @@ fun getHour(epoch: Long): String {
     return getFormatTime(epoch, "HH:mm")
 }
 
+fun getDateTime(epoch: Long): String {
+    return getFormatTime(epoch, "dd/MM/yy HH:mm")
+}
+
 fun getFormatTime(epoch: Long, format: String): String = SimpleDateFormat(format, Locale.getDefault())
     .apply {
         timeZone = TimeZone.getDefault()
