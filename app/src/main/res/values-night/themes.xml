@@ -13,4 +13,81 @@
         <item name="colorSurface">@color/gray_700</item>
         <item name="colorOnSurface">@color/white</item>
     </style>
+
+    <style name="Theme.Weather" parent="Base.Theme.Weather" />
+
+    <!--Base-->
+    <style name="Weather.TextView.Base" parent = "Widget.MaterialComponents.TextView">
+        <item name="android:gravity">center</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!--Types-->
+    <style name="Weather.TextView.Header" parent = "Weather.TextView.Base">
+        <item name="android:textSize">32sp</item>
+        <item name="fontFamily">@font/solway_regular</item>
+    </style>
+
+    <style name="Weather.TextView.Title" parent = "Weather.TextView.Base">
+        <item name="android:textSize">24sp</item>
+        <item name="fontFamily">@font/solway_regular</item>
+    </style>
+
+    <style name="Weather.TextView.Subtitle" parent = "Weather.TextView.Base">
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/solway_regular</item>
+    </style>
+
+    <style name="Weather.TextView.Paragraph" parent = "Weather.TextView.Base">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/share_tech_regular</item>
+    </style>
+
+    <style name="Weather.TextView.Detail" parent = "Weather.TextView.Base">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/share_tech_regular</item>
+    </style>
+
+    <!--OnSurface-->
+    <style name="Weather.TextView.Header.OnSurface" parent = "Weather.TextView.Header">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="Weather.TextView.Title.OnSurface" parent = "Weather.TextView.Title">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="Weather.TextView.Subtitle.OnSurface" parent = "Weather.TextView.Subtitle">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="Weather.TextView.Paragraph.OnSurface" parent = "Weather.TextView.Paragraph">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="Weather.TextView.Detail.OnSurface" parent = "Weather.TextView.Detail">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <!--OnPrimary-->
+    <style name="Weather.TextView.Header.OnPrimary" parent = "Weather.TextView.Header">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Weather.TextView.Title.OnPrimary" parent = "Weather.TextView.Title">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Weather.TextView.Subtitle.OnPrimary" parent = "Weather.TextView.Subtitle">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Weather.TextView.Paragraph.OnPrimary" parent = "Weather.TextView.Paragraph">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Weather.TextView.Detail.OnPrimary" parent = "Weather.TextView.Detail">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
 </resources>
