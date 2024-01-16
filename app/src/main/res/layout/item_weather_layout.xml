@@ -17,15 +17,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/common_padding_default"
-        android:layout_marginVertical="@dimen/common_margin_min">
+        android:layout_marginVertical="@dimen/common_margin_min"
+        android:background="@drawable/layout_bg_round_item">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceHeadline5"
             android:text="@{weather != null ? @string/weather_temp(weather.main.temp) : @string/weather_temp(forecast.main.temp)}"
             tools:text="234.2°F"
+            app:bindMaterialTextViewStyle='@{weather != null ? "@style/Weather.TextView.Title.OnSurface" : "@style/Weather.TextView.Title.OnPrimary"}'
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -34,9 +35,9 @@
             android:id="@+id/tvDateTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceHeadline6"
             android:text="@{weather != null ? @string/weather_time(CommonUtilsKt.getHour(weather.dt)) : CommonUtilsKt.getDateTime(forecast.dt)}"
             tools:text="22:00"
+            app:bindMaterialTextViewStyle='@{weather != null ? "@style/Weather.TextView.Subtitle.OnSurface" : "@style/Weather.TextView.Subtitle.OnPrimary"}'
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -44,9 +45,9 @@
             android:id="@+id/tvHumidity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceOverline"
             android:text="@{weather != null ? @string/weather_humidity(weather.main.humidity) : @string/weather_humidity(forecast.main.humidity)}"
             tools:text="Humidity: 65%"
+            app:bindMaterialTextViewStyle='@{weather != null ? "@style/Weather.TextView.Detail.OnSurface" : "@style/Weather.TextView.Detail.OnPrimary"}'
             app:layout_constraintTop_toBottomOf="@id/tvDateTime"
             app:layout_constraintStart_toStartOf="@id/tvDateTime"/>
 
@@ -54,10 +55,10 @@
             android:id="@+id/tvPop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceOverline"
             android:text="@{@string/weather_pop(CommonUtilsKt.getPop(forecast.pop))}"
-            bindIsGone="@{weather != null}"
             tools:text="10%"
+            app:bindIsGone="@{weather != null}"
+            app:bindMaterialTextViewStyle='@{weather != null ? "@style/Weather.TextView.Detail.OnSurface" : "@style/Weather.TextView.Detail.OnPrimary"}'
             app:layout_constraintTop_toBottomOf="@id/tvHumidity"
             app:layout_constraintStart_toStartOf="@id/tvHumidity"/>
 
@@ -66,8 +67,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{weather != null ? CommonUtilsKt.getWeatherMain(weather.weather) : CommonUtilsKt.getWeatherMain(forecast.weather)}"
-            android:textAppearance="?attr/textAppearanceHeadline6"
             tools:text="Clouds"
+            app:bindMaterialTextViewStyle='@{weather != null ? "@style/Weather.TextView.Subtitle.OnSurface" : "@style/Weather.TextView.Subtitle.OnPrimary"}'
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -75,9 +76,9 @@
             android:id="@+id/tvDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceCaption"
             android:text="@{weather != null ? CommonUtilsKt.getWeatherDescription(weather.weather) : CommonUtilsKt.getWeatherDescription(forecast.weather)}"
             tools:text="Few Clouds"
+            app:bindMaterialTextViewStyle='@{weather != null ? "@style/Weather.TextView.Paragraph.OnSurface" : "@style/Weather.TextView.Paragraph.OnPrimary"}'
             app:layout_constraintTop_toBottomOf="@id/tvMain"
             app:layout_constraintEnd_toEndOf="@id/tvMain"/>
 
@@ -85,8 +86,8 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:background="?attr/colorSecondary"
-            android:layout_marginTop="@dimen/common_margin_max"
-            app:layout_constraintTop_toBottomOf="@id/tvTemp"
+            android:layout_marginTop="@dimen/common_margin_min"
+            app:layout_constraintTop_toBottomOf="@id/tvPop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
