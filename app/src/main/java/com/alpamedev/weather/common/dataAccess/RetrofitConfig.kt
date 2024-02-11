@@ -17,4 +17,5 @@ object RetrofitConfig {
         .build()
 
     val weatherService: WeatherService = retrofit.create(WeatherService::class.java)
+    val cityService: PlaceService = retrofit.create(PlaceService::class.java)
 }

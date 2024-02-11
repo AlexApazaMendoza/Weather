@@ -11,6 +11,9 @@
         <variable
             name="forecast"
             type="com.alpamedev.weather.common.entities.ForecastX" />
+        <variable
+            name="timezone"
+            type="int" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout 
@@ -35,7 +38,7 @@
             android:id="@+id/tvDateTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{weather != null ? @string/weather_time(CommonUtilsKt.getHour(weather.dt)) : CommonUtilsKt.getDateTime(forecast.dt)}"
+            android:text="@{weather != null ? @string/weather_time(CommonUtilsKt.getHour(weather.dt, weather.timezone)) : CommonUtilsKt.getDateTime(forecast.dt, timezone)}"
             tools:text="22:00"
             app:bindMaterialTextViewStyle='@{weather != null ? "@style/Weather.TextView.Subtitle.OnSurface" : "@style/Weather.TextView.Subtitle.OnPrimary"}'
             app:layout_constraintTop_toTopOf="parent"

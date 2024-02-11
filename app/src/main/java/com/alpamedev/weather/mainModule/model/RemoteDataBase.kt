@@ -2,6 +2,7 @@ package com.alpamedev.weather.mainModule.model
 
 import com.alpamedev.weather.common.dataAccess.RetrofitConfig
 import com.alpamedev.weather.common.entities.Forecast
+import com.alpamedev.weather.common.entities.Place
 import com.alpamedev.weather.common.entities.Weather
 import com.alpamedev.weather.common.utils.Constants
 import kotlinx.coroutines.Dispatchers
@@ -36,6 +37,15 @@ class RemoteDataBase {
             units,
             count,
             language
+        )
+    }
+    suspend fun getCity(
+        place: String
+    ): List<Place> = withContext(Dispatchers.IO) {
+        RetrofitConfig.cityService.getCity(
+            place,
+            5,
+            Constants.APP_ID
         )
     }
 }

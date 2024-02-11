@@ -1,6 +1,7 @@
 package com.alpamedev.weather.mainModule.model
 
 import com.alpamedev.weather.common.entities.Forecast
+import com.alpamedev.weather.common.entities.Place
 import com.alpamedev.weather.common.entities.Weather
 
 class MainRepository {
@@ -30,4 +31,7 @@ class MainRepository {
         count,
         language
     )
+    suspend fun getPlace(
+        place: String
+    ): List<Place> = remoteDataBase.getCity(place)
 }

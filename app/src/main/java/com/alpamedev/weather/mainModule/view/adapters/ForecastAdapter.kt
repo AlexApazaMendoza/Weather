@@ -14,12 +14,12 @@ import com.alpamedev.weather.mainModule.view.listeners.OnClickItemListener
 
 class ForecastAdapter(val listener: OnClickItemListener): ListAdapter<ForecastX, RecyclerView.ViewHolder>(ForecastDiffUtil()) {
 
+    private var timezone: Int? = null
     inner class ForecastViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val binding = DataBindingUtil.bind<ItemWeatherLayoutBinding>(view)
-
         fun setListener(forecast: ForecastX) {
             binding?.root?.setOnClickListener {
-                listener.onClickItem(forecast)
+                listener.onClickItem(forecast, timezone)
             }
         }
     }
@@ -42,9 +42,14 @@ class ForecastAdapter(val listener: OnClickItemListener): ListAdapter<ForecastX,
         val forecast = getItem(position)
         with(holder as ForecastViewHolder) {
             binding?.forecast = forecast
+            if (timezone != null) binding?.timezone = timezone as Int
             binding?.executePendingBindings()
 
             setListener(forecast)
         }
+    }
+
+    fun setTimeZone(timezone: Int) {
+        this.timezone = timezone
     }
 }

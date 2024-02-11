@@ -29,6 +29,10 @@ class MainViewModel: ViewModel() {
     val isLoading: LiveData<Boolean>
         get() = _isLoading
 
+    private val _onSearchPlaceClick = MutableLiveData<Boolean>()
+    val onSearchPlaceClick: LiveData<Boolean>
+        get() = _onSearchPlaceClick
+
     fun getWeather(lat: Double, lon: Double) {
         viewModelScope.launch {
             try {
@@ -56,5 +60,9 @@ class MainViewModel: ViewModel() {
                 _isLoading.value = false
             }
         }
+    }
+    fun onSearchPlaceClick() {
+        _onSearchPlaceClick.value = true
+        _onSearchPlaceClick.value = false
     }
 }

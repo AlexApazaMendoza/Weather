@@ -37,6 +37,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+        <ImageButton
+            android:id="@+id/btnChoosePlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_location_searching"
+            android:backgroundTint="?attr/colorPrimary"
+            android:foregroundTint="?attr/colorOnPrimary"
+            android:layout_marginEnd="@dimen/common_margin_min"
+            android:onClick="@{() -> viewModel.onSearchPlaceClick()}"
+            app:bindIsGone="@{viewModel.isLoading()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvCurrentTitle"/>
+
         <include
             android:id="@+id/currentWeather"
             android:layout_width="0dp"
@@ -45,7 +58,7 @@
             layout="@layout/item_weather_layout"
             app:weather="@{viewModel.result}"
             app:bindIsGone="@{viewModel.isLoading()}"
-            app:layout_constraintTop_toBottomOf="@id/tvCurrentTitle"
+            app:layout_constraintTop_toBottomOf="@id/btnChoosePlace"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
