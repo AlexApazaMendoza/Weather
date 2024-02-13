@@ -21,10 +21,15 @@ class SearchViewModel: ViewModel() {
     val data: LiveData<MutableList<String>>
         get() = _data
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean>
+        get() = _isLoading
+
     fun searchPlace(place: String) {
         if (place.isEmpty()) {
             _result.value = mutableListOf()
         } else {
+            _isLoading.value = true
             viewModelScope.launch {
                 _result.value = repository.getPlace(place)
             }
@@ -40,5 +45,6 @@ class SearchViewModel: ViewModel() {
                 "${place.name} $state [${place.country}]"
             }.toMutableList()
         }
+        _isLoading.value = false
     }
 }
